@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.view.View
 import android.webkit.WebSettings
 
 class MainActivity : Activity() {
