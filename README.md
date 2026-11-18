@@ -1,27 +1,17 @@
-# EV Charger Pro — Android project
+# EV Charger Pro 1.1.0
 
-A WebView-based Android application shell with the EV Charger Pro interface in `app/src/main/assets/index.html`.
+Android WebView application with:
+- Load calculation by charger power or entered current
+- Single phase, three-phase 3-wire, and three-phase 4-wire (3P+N) input
+- Preliminary voltage-drop calculation and candidate conductor sections based on voltage drop only
+- Preliminary materials list
+- Editable products catalogue with brand and unit price
+- Bill of materials with quantity, unit price, line totals and project total
+- Local device storage for catalogue and bill of materials
 
-## Build APK with GitHub Actions (no Android Studio required)
+## Build
+GitHub Actions workflow: `.github/workflows/build-apk.yml`.
+Run `Build EV Charger Pro APK` from the Actions tab.
 
-1. Create a **new empty GitHub repository** named `EVChargerPro` (do not add a README, license, or `.gitignore` on GitHub).
-2. Upload the **contents of this folder** to the repository root. The `.github` folder must be included.
-3. Open the repository's **Actions** tab and enable workflows if GitHub asks.
-4. Select **Build EV Charger Pro APK** and click **Run workflow**.
-5. When the run is green, open it and download the artifact named **EV-Charger-Pro-debug-APK**. Unzip it to get `app-debug.apk`.
-
-The workflow uses JDK 17, Android SDK, Gradle 8.9, Android Gradle Plugin 8.7.3, and Kotlin 2.0.21. It runs a task-discovery check before building and verifies that the APK exists before upload.
-
-## Project layout
-
-- `settings.gradle` — includes `:app` and configures plugin/dependency repositories.
-- `build.gradle` — pins Android and Kotlin plugin versions.
-- `app/build.gradle` — Android application module.
-- `app/src/main/AndroidManifest.xml` — launcher activity and app metadata.
-- `app/src/main/java/com/evchargerpro/app/MainActivity.kt` — WebView activity.
-- `app/src/main/assets/index.html` — app interface.
-- `.github/workflows/build-apk.yml` — automated APK build.
-
-## Engineering notice
-
-This is a starter/prototype application, not a certified electrical design tool. Cable sizing and voltage-drop estimates must be independently checked. It does not replace applicable standards, manufacturer instructions, local regulations, or review by a qualified electrical engineer. Do not use it as the sole basis for selecting protective devices or installing EV charging equipment.
+## Electrical safety
+This app is an estimation aid only. It does not contain validated ampacity tables or a complete protective-device coordination engine. Do not use its preliminary breaker/cable suggestions as installation approval. Verify local code, installation method, grouping, ambient temperature, short-circuit and disconnection requirements, earthing, charger manufacturer requirements, and RCD/DC leakage protection with a qualified electrical engineer.
